@@ -5,18 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Jaya
 {
+    /// <summary>
+    /// Startup
+    /// </summary>
     public partial class Startup
     {
-        //public Startup(IConfiguration configuration)
-        //{
-        //    Configuration = configuration;
-        //}
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="env"></param>
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -46,10 +44,9 @@ namespace Jaya
         }
 
         /// <summary>
-        /// 
+        /// Configure
         /// </summary>
         /// <param name="app"></param>
-        /// <param name="env"></param>
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
@@ -60,10 +57,7 @@ namespace Jaya
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             ConfigureSwagger(app);
         }
