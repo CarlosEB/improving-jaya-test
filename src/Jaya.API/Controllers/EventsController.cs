@@ -37,7 +37,7 @@ namespace Jaya.Controllers
         /// Get all events of an issue based on number
         /// </summary>
         /// <returns></returns>
-        [HttpGet("number/events")]
+        [HttpGet("{number}/events")]
         public async Task<ActionResult<IEnumerable<IssueViewModel>>> GetAllEvents(long number)
         {
             var result = await _issueService.GetAllEventsAsync(number);
@@ -55,7 +55,7 @@ namespace Jaya.Controllers
         /// Get the last issue's event based on number
         /// </summary>
         /// <returns></returns>
-        [HttpGet("number/lastevent")]
+        [HttpGet("{number}/lastevent")]
         public async Task<ActionResult<IssueViewModel>> GetLastEvent(long number)
         {
             var result = await _issueService.GetLastEventAsync(number);
