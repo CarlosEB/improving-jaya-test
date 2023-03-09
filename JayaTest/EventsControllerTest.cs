@@ -16,12 +16,6 @@ namespace JayaTest
     {
         private readonly WebApplicationFactory<Jaya.Startup> _factory;
 
-        //public BasicTests(WebApplicationFactory<Jaya.Startup> factory)
-        //{
-        //    _factory = factory;
-
-        //}
-
         public BasicTests()
         {
             _factory = new WebApplicationFactory<Jaya.Startup>().WithWebHostBuilder(builder =>
@@ -32,7 +26,6 @@ namespace JayaTest
                builder.ConfigureServices(services => services.Add(descriptor));
 
            });
-
         }
 
         [Theory]
@@ -67,6 +60,5 @@ namespace JayaTest
             response.StatusCode.Equals(HttpStatusCode.NoContent); // Status Code 204
             Assert.Null(response.Content.Headers.ContentType);
         }
-
     }
 }
