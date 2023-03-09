@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Jaya.Application.Services;
 using Jaya.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +14,7 @@ namespace Jaya.Controllers
     public class EventsController : ControllerBase
     {
 
-        private readonly ITaskService _taskService;
+        private readonly IIssueService _taskService;
 
         /// <summary>
         /// 
@@ -29,7 +26,7 @@ namespace Jaya.Controllers
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="taskService"></param>
-        public EventsController(ILogger<EventsController> logger, ITaskService taskService)
+        public EventsController(ILogger<EventsController> logger, IIssueService taskService)
         {
             _logger = logger;
             _taskService = taskService;
@@ -39,10 +36,20 @@ namespace Jaya.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
-        public IEnumerable<TaskViewModel> Get()
+        [HttpGet("number/events")]
+        public IEnumerable<IssueViewModel> GetAllEvents(long number)
         {
-            return _taskService.GetAll();
+            return _taskService.GetAllEvents(number);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("number/lastevent")]
+        public IssueViewModel GetLastEvent(long number)
+        {
+            return _taskService.GetLastEvent(number);
         }
 
         /// <summary>
@@ -53,6 +60,8 @@ namespace Jaya.Controllers
         [HttpPost]
         public IActionResult PostEvent(object data)
         {
+
+            _taskService.Save(data);
 
             return Ok();
         }
