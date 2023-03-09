@@ -25,7 +25,7 @@ Stored events will eventually be consumed via an API.
 	I used Swagger to simplify the execution and visualization of endpoint results
 	To Open, access the URL below:
 	
-	[http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
+	http://localhost:5000/swagger/index.html
 
 ## Running the Tests
 	Go the Repo Folder: improving-jaya-test
