@@ -14,7 +14,7 @@ namespace Jaya.Controllers
     public class EventsController : ControllerBase
     {
 
-        private readonly IIssueService _taskService;
+        private readonly IIssueService _issueService;
 
         /// <summary>
         /// 
@@ -29,7 +29,7 @@ namespace Jaya.Controllers
         public EventsController(ILogger<EventsController> logger, IIssueService taskService)
         {
             _logger = logger;
-            _taskService = taskService;
+            _issueService = taskService;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Jaya.Controllers
         [HttpGet("number/events")]
         public IEnumerable<IssueViewModel> GetAllEvents(long number)
         {
-            return _taskService.GetAllEvents(number);
+            return _issueService.GetAllEvents(number);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Jaya.Controllers
         [HttpGet("number/lastevent")]
         public IssueViewModel GetLastEvent(long number)
         {
-            return _taskService.GetLastEvent(number);
+            return _issueService.GetLastEvent(number);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Jaya.Controllers
         public IActionResult PostEvent(object data)
         {
 
-            _taskService.Save(data);
+            _issueService.Save(data);
 
             return Ok();
         }

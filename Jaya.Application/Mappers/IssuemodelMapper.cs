@@ -7,7 +7,7 @@ namespace Jaya.Application.Mappers
 {
     public class IssuemodelMapper
     {
-        public static Issue MapTask(object payload)
+        public static Issue Map(object payload)
         {
             var result = (JObject)JsonConvert.DeserializeObject(payload.ToString());
 

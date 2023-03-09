@@ -31,7 +31,7 @@ namespace Jaya.Application.Services
         public void Save(object payload)
         {
 
-            Issue model = IssuemodelMapper.MapTask(payload);
+            Issue model = IssuemodelMapper.Map(payload);
 
             _repo.Save(model);
 
