@@ -1,13 +1,14 @@
 ﻿using Jaya.Application.ViewModels;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Jaya.Application.Services
 {
     public interface IIssueService
     {
-        void Save(object payload);
-        IssueViewModel GetLastEvent(long number);
+        Task SaveAsync(object payload);
+        Task<IssueViewModel> GetLastEventAsync(long number);
 
-        IEnumerable<IssueViewModel> GetAllEvents(long number);
+        Task<IList<IssueViewModel>> GetAllEventsAsync(long number);
     }
 }

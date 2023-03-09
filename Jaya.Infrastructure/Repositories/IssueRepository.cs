@@ -1,8 +1,10 @@
 ﻿
 using Jaya.Domain.Issues.Interfaces;
 using Jaya.Infrastructure.DataAccess;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Jaya.Infrastructure.Repositories
 {
@@ -16,21 +18,21 @@ namespace Jaya.Infrastructure.Repositories
         }
 
 
-        public Issue GetLastEvent(long number)
+        public async Task<Issue> GetLastEventAsync(long number)
         {
-            return GetAllEvents(number).FirstOrDefault();
+            return await Context.Set<Issue>().Where(w => w.Number == number).OrderByDescending(o => o.Id).FirstOrDefaultAsync();
         }
 
-        public IEnumerable<Issue> GetAllEvents(long number)
+        public async Task<IEnumerable<Issue>> GetAllEventsAsync(long number)
         {
-            return Context.Set<Issue>().Where(w => w.Number == number).OrderByDescending(o => o.Id).ToList();
+            return await Context.Set<Issue>().Where(w => w.Number == number).OrderByDescending(o => o.Id).ToListAsync();
         }
 
-        public async void Save(Issue issue)
+        public async Task SaveAsync(Issue issue)
         {
-            Context.Set<Issue>().Add(issue);
-            Context.SaveChanges();
+            await Context.Set<Issue>().AddAsync(issue);
+            
+            await Context.SaveChangesAsync();
         }
-
     }
 }

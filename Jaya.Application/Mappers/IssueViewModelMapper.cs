@@ -7,7 +7,7 @@ namespace Jaya.Application.Mappers
 {
     public class IssueViewModelMapper
     {
-        public static IEnumerable<IssueViewModel> MapIssues(IEnumerable<Issue> issues)
+        public static IList<IssueViewModel> MapIssues(IEnumerable<Issue> issues)
         {
             return issues.Select(s => new IssueViewModel(s)).ToList();
         }

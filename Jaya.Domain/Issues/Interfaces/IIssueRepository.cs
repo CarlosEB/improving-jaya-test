@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Jaya.Domain.Issues.Interfaces
 {
     public interface IIssueRepository
     {
-        IEnumerable<Issue> GetAllEvents(long number);
+        Task<IEnumerable<Issue>> GetAllEventsAsync(long number);
 
-        Issue GetLastEvent(long number);
+        Task<Issue> GetLastEventAsync(long number);
 
-        void Save(Issue taskModel);
+        Task SaveAsync(Issue taskModel);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Jaya.Application.Services;
 using Jaya.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -33,35 +34,49 @@ namespace Jaya.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Get all events of an issue based on number
         /// </summary>
         /// <returns></returns>
         [HttpGet("number/events")]
-        public IEnumerable<IssueViewModel> GetAllEvents(long number)
+        public async Task<ActionResult<IEnumerable<IssueViewModel>>> GetAllEvents(long number)
         {
-            return _issueService.GetAllEvents(number);
+            var result = await _issueService.GetAllEventsAsync(number);
+
+            if (result.Count == 0)
+            {
+                _logger.LogInformation("Number {0} does not exist in the database", number);
+                return NoContent();
+            }
+
+            return Ok(result);
         }
 
         /// <summary>
-        /// 
+        /// Get the last issue's event based on number
         /// </summary>
         /// <returns></returns>
         [HttpGet("number/lastevent")]
-        public IssueViewModel GetLastEvent(long number)
+        public async Task<ActionResult<IssueViewModel>> GetLastEvent(long number)
         {
-            return _issueService.GetLastEvent(number);
+            var result = await _issueService.GetLastEventAsync(number);
+            if (result.Number == 0)
+            {
+                _logger.LogInformation("Number {0} does not exist in the database", number);
+                return NoContent();
+            }
+
+            return Ok(result);
         }
 
         /// <summary>
-        /// 
+        /// Save the Issue in the Database
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult PostEvent(object data)
+        public async Task<IActionResult> PostEvent(object data)
         {
-
-            _issueService.Save(data);
+            await _issueService.SaveAsync(data);
 
             return Ok();
         }

@@ -1,7 +1,7 @@
 ﻿using Jaya.Domain.Issues.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
+using Jaya.Application.Tools;
 
 namespace Jaya.Application.Mappers
 {
@@ -11,20 +11,15 @@ namespace Jaya.Application.Mappers
         {
             var result = (JObject)JsonConvert.DeserializeObject(payload.ToString());
 
-            var action = result["action"].ToString();
-            var createdAt = DateTime.Parse(result["issue"]["created_at"].ToString());
-            var updatedAt = DateTime.Parse(result["issue"]["updated_at"].ToString());
-            var number = int.Parse(result["issue"]["number"].ToString());
-            var title = result["issue"]["title"].ToString();
+            var issue = result["issue"];
 
-            return new Issue
-            { 
-                Action = action,
-                CreatedAt = createdAt,
-                UpdatedAt = updatedAt,
-                Number = number,
-                Title = title
-            };
+            var createdAt = issue["created_at"].ToDateTime();
+            var updatedAt = issue["updated_at"].ToDateTime();
+            var number = issue["number"].ToNumber();
+            var title = issue["title"].ToString();
+            var action = result["action"].ToString();
+
+            return new Issue(number, action, createdAt, updatedAt, title);
         }
     }
 }

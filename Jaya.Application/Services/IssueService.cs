@@ -4,6 +4,7 @@ using Jaya.Application.Mappers;
 using Jaya.Application.ViewModels;
 using Jaya.Domain.Issues.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Jaya.Application.Services
 {
@@ -18,22 +19,22 @@ namespace Jaya.Application.Services
 
         }
 
-        public IssueViewModel GetLastEvent(long number)
+        public async Task<IssueViewModel> GetLastEventAsync(long number)
         {
-            return IssueViewModelMapper.MapIssue(_repo.GetLastEvent(number));
+            return IssueViewModelMapper.MapIssue(await _repo.GetLastEventAsync(number));
         }
 
-        public IEnumerable<IssueViewModel> GetAllEvents(long number)
+        public async Task<IList<IssueViewModel>> GetAllEventsAsync(long number)
         {
-            return IssueViewModelMapper.MapIssues(_repo.GetAllEvents(number));
+            return IssueViewModelMapper.MapIssues(await _repo.GetAllEventsAsync(number));
         }
 
-        public void Save(object payload)
+        public async Task SaveAsync(object payload)
         {
 
             Issue model = IssuemodelMapper.Map(payload);
 
-            _repo.Save(model);
+            await _repo.SaveAsync(model);
 
         }
     }

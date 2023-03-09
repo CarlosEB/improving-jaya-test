@@ -4,6 +4,18 @@ namespace Jaya.Domain.Issues.Interfaces
 {
     public class Issue
     {
+        public Issue()
+        { }
+
+        public Issue(int number, string action, DateTime created, DateTime updated, string title)
+        {
+            CreatedAt = created;
+            UpdatedAt = updated;
+            Number = number;
+            Action = action;
+            Title = title;
+        }
+
         public long Id { get; set; }
 
         public DateTime CreatedAt { get; set; }
