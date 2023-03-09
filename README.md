@@ -15,7 +15,7 @@ Stored events will eventually be consumed via an API.
 	For the Database, I used PostgreSQL as a Service.
 		
 ## Running the app
-	Go the Repo Folder: improving-jaya-test
+	Go to the Repo Folder: improving-jaya-test
 	Execute:
 	
 		dotnet build
