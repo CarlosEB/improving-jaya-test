@@ -32,7 +32,7 @@ namespace Jaya.Application.Services
         public async Task SaveAsync(object payload)
         {
 
-            Issue model = IssuemodelMapper.Map(payload);
+            Issue model = IssueModelMapper.Map(payload);
 
             await _repo.SaveAsync(model);
 

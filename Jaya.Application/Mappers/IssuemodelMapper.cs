@@ -5,7 +5,7 @@ using Jaya.Application.Tools;
 
 namespace Jaya.Application.Mappers
 {
-    public class IssuemodelMapper
+    public class IssueModelMapper
     {
         public static Issue Map(object payload)
         {
