@@ -40,4 +40,4 @@ Stored events will eventually be consumed via an API.
 	
 	ngrok http 5000
 	
-	After running, remember to update the webhook so that github 	can send the information to your computer
+	After running, remember to update the webhook so that github can send the information to your computer
