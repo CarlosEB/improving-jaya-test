@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jaya.API</name>
+    </assembly>
+    <members>
+        <member name="T:Jaya.Controllers.EventsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Jaya.Controllers.EventsController._logger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaya.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{Jaya.Controllers.EventsController},Jaya.Application.Services.ITaskService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="taskService"></param>
+        </member>
+        <member name="M:Jaya.Controllers.EventsController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jaya.Controllers.EventsController.PostEvent(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Jaya.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jaya.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Jaya.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>
