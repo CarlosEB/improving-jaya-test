@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Jaya.Application.Services;
 using Jaya.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 
 namespace Jaya.Controllers
 {
@@ -76,7 +78,15 @@ namespace Jaya.Controllers
         [HttpPost]
         public async Task<IActionResult> PostEvent(object data)
         {
-            await _issueService.SaveAsync(data);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var result = 
+                JsonSerializer.Deserialize<PayloadViewModel>(JObject.Parse(data.ToString()).Root.ToString(), options);
+
+            await _issueService.SaveAsync(result);
 
             return Ok();
         }

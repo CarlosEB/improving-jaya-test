@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC770006-C91F-4EDD-A464-08BAF5AFA399}"
-	ProjectSection(SolutionItems) = preProject
-		src\Jaya.Infrastructure\Jaya.Infrastructure.csproj = src\Jaya.Infrastructure\Jaya.Infrastructure.csproj
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{AB7CA42B-A820-4EF6-8371-E1EFB1859548}"
 EndProject
@@ -17,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jaya.Domain", "src\Jaya.Domain\Jaya.Domain.csproj", "{0CF687D4-9A1F-4702-9B3A-E6E1DBBA74EF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jaya.Test", "tests\Jaya.Test.csproj", "{F7772231-4C15-439C-BA29-F90A5BEA2C90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jaya.Infrastructure", "src\Jaya.Infrastructure\Jaya.Infrastructure.csproj", "{454D79B9-521B-4CB4-AE9B-10F18A883989}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +39,10 @@ Global
 		{F7772231-4C15-439C-BA29-F90A5BEA2C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7772231-4C15-439C-BA29-F90A5BEA2C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7772231-4C15-439C-BA29-F90A5BEA2C90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454D79B9-521B-4CB4-AE9B-10F18A883989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454D79B9-521B-4CB4-AE9B-10F18A883989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454D79B9-521B-4CB4-AE9B-10F18A883989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454D79B9-521B-4CB4-AE9B-10F18A883989}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +51,7 @@ Global
 		{9465875A-6384-4ABB-B492-F51120E833F0} = {AC770006-C91F-4EDD-A464-08BAF5AFA399}
 		{0CF687D4-9A1F-4702-9B3A-E6E1DBBA74EF} = {AC770006-C91F-4EDD-A464-08BAF5AFA399}
 		{F7772231-4C15-439C-BA29-F90A5BEA2C90} = {AB7CA42B-A820-4EF6-8371-E1EFB1859548}
+		{454D79B9-521B-4CB4-AE9B-10F18A883989} = {AC770006-C91F-4EDD-A464-08BAF5AFA399}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56F55E20-65BA-477B-ABF4-80195D05377C}

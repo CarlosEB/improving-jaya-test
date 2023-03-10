@@ -7,7 +7,7 @@ namespace Jaya.Domain.Issues.Interfaces
         public Issue()
         { }
 
-        public Issue(int number, string action, DateTime created, DateTime updated, string title)
+        public Issue(int number, string action, DateTime created, DateTime? updated, string title)
         {
             CreatedAt = created;
             UpdatedAt = updated;
@@ -20,7 +20,7 @@ namespace Jaya.Domain.Issues.Interfaces
 
         public DateTime CreatedAt { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public int Number { get; set; }
 

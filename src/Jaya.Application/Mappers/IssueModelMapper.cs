@@ -1,25 +1,14 @@
 ﻿using Jaya.Domain.Issues.Interfaces;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Jaya.Application.Tools;
+using Jaya.Application.ViewModels;
 
 namespace Jaya.Application.Mappers
 {
     public class IssueModelMapper
     {
-        public static Issue Map(object payload)
+        public static Issue Map(PayloadViewModel payload)
         {
-            var result = (JObject)JsonConvert.DeserializeObject(payload.ToString());
-
-            var issue = result["issue"];
-
-            var createdAt = issue["created_at"].ToDateTime();
-            var updatedAt = issue["updated_at"].ToDateTime();
-            var number = issue["number"].ToNumber();
-            var title = issue["title"].ToString();
-            var action = result["action"].ToString();
-
-            return new Issue(number, action, createdAt, updatedAt, title);
+            return new 
+                Issue(payload.Issue.Number, payload.Action, payload.Issue.CreatedAt, payload.Issue.UpdatedAt, payload.Issue.Title);
         }
     }
 }

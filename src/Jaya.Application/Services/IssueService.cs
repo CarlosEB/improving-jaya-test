@@ -29,7 +29,7 @@ namespace Jaya.Application.Services
             return IssueViewModelMapper.MapIssues(await _repo.GetAllEventsAsync(number));
         }
 
-        public async Task SaveAsync(object payload)
+        public async Task SaveAsync(PayloadViewModel payload)
         {
 
             Issue model = IssueModelMapper.Map(payload);

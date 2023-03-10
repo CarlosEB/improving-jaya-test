@@ -1,9 +1,8 @@
 ﻿using Jaya.Domain.Issues.Interfaces;
-using System;
 
 namespace Jaya.Application.ViewModels
 {
-    public class IssueViewModel
+    public class IssueViewModel : IssueBaseViewModel
     {
         public IssueViewModel()
         { }
@@ -21,15 +20,6 @@ namespace Jaya.Application.ViewModels
             }
         }
 
-
-        public DateTime CreatedAt { get; set; }
-
-        public DateTime UpdatedAt { get; set; }
-
-        public int Number { get; set; }
-
         public string Action { get; set; }
-
-        public string Title { get; set; }
     }
 }

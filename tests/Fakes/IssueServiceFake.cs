@@ -31,7 +31,7 @@ namespace Jaya.Test.Fakes
                 new IssueViewModel(_data.Where(w => w.Number == number).OrderByDescending(o => o.Id).FirstOrDefault()));
         }
 
-        public Task SaveAsync(object payload)
+        public Task SaveAsync(PayloadViewModel payload)
         {
             throw new NotImplementedException();
         }

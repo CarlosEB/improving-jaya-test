@@ -1,6 +1,7 @@
 using Jaya.Application.Services;
 using Jaya.Test.Fakes;
 using Microsoft.AspNetCore.Mvc.Testing;
+using System;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -24,8 +25,16 @@ namespace Jaya.Test.Services
             _issueService = new IssueService(new IssueRepositoryFake());
 
             // Act
-            await _issueService.SaveAsync("{'action': 'opened','issue': {'number': 1,'title': 'Issue #1','created_at': '2023-03-10T14:32:15Z','updated_at': ''}}");
-            await _issueService.SaveAsync("{'action': 'closed','issue': {'number': 1,'title': 'Issue #1','created_at': '2023-03-10T14:32:15Z','updated_at': '2023-03-10T14:35:15Z'}}");
+            await _issueService
+                .SaveAsync(PayloadViewModelBuilder.Build("opened", 1, "Issue #1", new DateTime(2023, 03, 10, 9, 15, 20), null));
+
+            await _issueService
+                .SaveAsync(PayloadViewModelBuilder.Build("closed", 1, "Issue #1", new DateTime(2023, 03, 10, 9, 15, 20), new DateTime(2023, 03, 10, 9, 20, 32)));
+
+
+
+            //  "{'action': 'opened','issue': {'number': 1,'title': 'Issue #1','created_at': '2023-03-10T14:32:15Z','updated_at': ''}}"); ;
+            //await _issueService.SaveAsync("{'action': 'closed','issue': {'number': 1,'title': 'Issue #1','created_at': '2023-03-10T14:32:15Z','updated_at': '2023-03-10T14:35:15Z'}}");
 
             var resultAll = await _issueService.GetAllEventsAsync(1);
             var resultLast = await _issueService.GetLastEventAsync(1);
@@ -41,8 +50,7 @@ namespace Jaya.Test.Services
             // Arrange
             _issueService = new IssueService(new IssueRepositoryFake());
 
-            // Act
-            await _issueService.SaveAsync("{'action': 'opened','issue': {'number': 1,'title': 'Issue #1','created_at': '2023-03-10T14:32:15Z','updated_at': ''}}");
+            // Act - Nothing to Do
 
             var resultAll = await _issueService.GetAllEventsAsync(2);
             var resultLast = await _issueService.GetLastEventAsync(2);

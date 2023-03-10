@@ -6,7 +6,7 @@ namespace Jaya.Application.Services
 {
     public interface IIssueService
     {
-        Task SaveAsync(object payload);
+        Task SaveAsync(PayloadViewModel payload);
         Task<IssueViewModel> GetLastEventAsync(long number);
 
         Task<IList<IssueViewModel>> GetAllEventsAsync(long number);
