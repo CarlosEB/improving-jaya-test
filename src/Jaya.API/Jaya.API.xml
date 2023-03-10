@@ -14,25 +14,60 @@
             
             </summary>
         </member>
-        <member name="M:Jaya.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{Jaya.Controllers.EventsController},Jaya.Application.Services.ITaskService)">
+        <member name="M:Jaya.Controllers.EventsController.#ctor(Microsoft.Extensions.Logging.ILogger{Jaya.Controllers.EventsController},Jaya.Application.Services.IIssueService)">
             <summary>
             
             </summary>
             <param name="logger"></param>
             <param name="taskService"></param>
         </member>
-        <member name="M:Jaya.Controllers.EventsController.Get">
+        <member name="M:Jaya.Controllers.EventsController.GetAllEvents(System.Int64)">
             <summary>
-            
+            Get all events of an issue based on number
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jaya.Controllers.EventsController.GetLastEvent(System.Int64)">
+            <summary>
+            Get the latest issue's event based on number
             </summary>
             <returns></returns>
         </member>
         <member name="M:Jaya.Controllers.EventsController.PostEvent(System.Object)">
             <summary>
-            
+            Save the Issue in the Database
             </summary>
             <param name="data"></param>
             <returns></returns>
+        </member>
+        <member name="T:Jaya.Program">
+            <summary>
+            Program
+            </summary>
+        </member>
+        <member name="M:Jaya.Program.Main(System.String[])">
+            <summary>
+            Main
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Jaya.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            CreateHostBuilder
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Jaya.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:Jaya.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="env"></param>
         </member>
         <member name="P:Jaya.Startup.Configuration">
             <summary>
@@ -45,12 +80,11 @@
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Jaya.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+        <member name="M:Jaya.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            
+            Configure
             </summary>
             <param name="app"></param>
-            <param name="env"></param>
         </member>
     </members>
 </doc>

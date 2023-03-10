@@ -1,12 +1,12 @@
 using Jaya.Application.Services;
-using JayaTest.Fake;
+using Jaya.Test.Fakes;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace JayaTest
+namespace Jaya.Test.Controllers
 {
     public class EventsControllerTest
     : IClassFixture<WebApplicationFactory<Jaya.Startup>>

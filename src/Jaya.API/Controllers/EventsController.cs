@@ -52,7 +52,7 @@ namespace Jaya.Controllers
         }
 
         /// <summary>
-        /// Get the last issue's event based on number
+        /// Get the latest issue's event based on number
         /// </summary>
         /// <returns></returns>
         [HttpGet("{number}/lastevent")]

@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\carlos\Source\Repos\Jaya\src\Jaya.API\Jaya.API.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\carlos\Source\Repos\improving-jaya-test\src\Jaya.API\Jaya.API.xml</DocumentationFile>
+    <WarningLevel>2</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\carlos\Source\Repos\improving-jaya-test\src\Jaya.API\Jaya.API.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Jaya.Application\Jaya.Application.csproj" />
-    <ProjectReference Include="..\..\Jaya.Infrastructure\Jaya.Infrastructure.csproj" />
+    <ProjectReference Include="..\Jaya.Application\Jaya.Application.csproj" />
+    <ProjectReference Include="..\Jaya.Infrastructure\Jaya.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
